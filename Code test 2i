@@ -1,0 +1,56 @@
+# In a language of your choice, using all best practice principles you're aware of, 
+# could you please provide code that 
+# iterates in multiples of A until X, 
+# then in multiples of A + 1 until 2X, 
+# then multiples of A + 2 until 3X. 
+
+# Please state any assumptions you've made.
+
+# What are Mutiples:
+# Multiples are really just extended times tables.
+# The multiples of 2 are all the numbers in the 2 times table, such as 2, 4, 6, 8, 10 and so on.
+#Â Multiples of 2 always end with a 2, 4, 6, 8 or 0. You can tell 2286, for example, is a multiple of 2 because it ends with a 6.
+# The multiples of 5 are all the numbers in the 5 times table, such as 5, 10, 15, 20, 25 and so on.
+# Multiples of 5 always end with a 5 or a 0. You can tell 465, for example, is a multiple of 5 because it ends with a 5.
+
+def iter(A, X):
+    try: 
+        a = int(A)
+        x = int(X)
+    except:
+        return "A or X is not a number"
+        
+    if a <= 0 or x <= 0:
+        return "A or X is 0 or less."
+    
+    if a > x:
+        return "X is bigger than A"
+        
+    first = []
+    second = []
+    third = []
+    calc1 = a
+    calc2 = a
+    calc3 = a
+    
+    while calc1 <= x:
+        first.append(calc1)
+        calc1 = calc1 + a
+        
+    while calc2 <= x*2:
+        second.append(calc2 * a+1)
+        calc2 = calc2 * (a+1)
+        
+    while calc3 <= x*3:
+        third.append(calc3 * a+2)
+        calc3 = calc3 * (a+2)
+      
+    
+    print("First:", first)
+    print("Second:", second)
+    print("Third:", third)
+    print("Next Iteration...")
+
+iter(2,14)
+iter(3,32)
+iter(-1, -12)
